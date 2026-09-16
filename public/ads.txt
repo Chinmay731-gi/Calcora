@@ -1,0 +1,6 @@
+# Replace pub-0000000000000000 below with your real AdSense publisher ID
+# (find it in AdSense under Account > Settings > Account information,
+# it looks like "pub-1234567890123456"). This file must be reachable at
+# https://<your-domain>/ads.txt — Next.js serves anything in /public at
+# the site root automatically, so no further config is needed.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

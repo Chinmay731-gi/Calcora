@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Sora, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -16,7 +18,12 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://www.indiacalculator.example.com";
+// Set NEXT_PUBLIC_ADSENSE_CLIENT (e.g. "ca-pub-1234567890123456") in your
+// deployment's environment variables once you have an AdSense publisher ID.
+// This is the snippet Google's crawler looks for when it reviews your site
+// for approval, and later serves your ads. Leave it unset locally — no
+// script is injected until the env var is present, so dev builds stay clean.
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -50,7 +57,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-IN" className={`${sora.variable} ${inter.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        {children}
+        {ADSENSE_CLIENT && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
+      </body>
     </html>
   );
 }

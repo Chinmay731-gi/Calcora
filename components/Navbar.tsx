@@ -3,15 +3,17 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Calculator } from "lucide-react";
 
+// Hash links are prefixed with "/" so they still resolve correctly when
+// clicked from a subpage like /about, not just from the homepage.
 const LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#calculators", label: "Calculators" },
-  { href: "#emi-calculator", label: "EMI" },
-  { href: "#gst-calculator", label: "GST" },
-  { href: "#salary-calculator", label: "Salary" },
-  { href: "#sip-calculator", label: "SIP" },
-  { href: "#age-calculator", label: "Age" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/", label: "Home" },
+  { href: "/#calculators", label: "Calculators" },
+  { href: "/#emi-calculator", label: "EMI" },
+  { href: "/#gst-calculator", label: "GST" },
+  { href: "/#salary-calculator", label: "Salary" },
+  { href: "/#sip-calculator", label: "SIP" },
+  { href: "/#age-calculator", label: "Age" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export default function Navbar() {
@@ -33,7 +35,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8 sm:py-5">
         <a
-          href="#home"
+          href="/"
           className="focus-ring flex items-center gap-3 font-display text-xl font-bold text-white sm:text-2xl"
         >
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-purple to-pink text-white sm:h-12 sm:w-12">

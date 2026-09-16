@@ -1,20 +1,23 @@
+import Link from "next/link";
+import { SITE_NAME } from "@/lib/site";
+
 const CALC_LINKS = [
-  { href: "#emi-calculator", label: "EMI Calculator" },
-  { href: "#gst-calculator", label: "GST Calculator" },
-  { href: "#salary-calculator", label: "Salary Calculator" },
-  { href: "#sip-calculator", label: "SIP Calculator" },
-  { href: "#age-calculator", label: "Age Calculator" },
-  { href: "#percentage-calculator", label: "Percentage Calculator" },
-  { href: "#loan-calculator", label: "Loan Calculator" },
+  { href: "/#emi-calculator", label: "EMI Calculator" },
+  { href: "/#gst-calculator", label: "GST Calculator" },
+  { href: "/#salary-calculator", label: "Salary Calculator" },
+  { href: "/#sip-calculator", label: "SIP Calculator" },
+  { href: "/#age-calculator", label: "Age Calculator" },
+  { href: "/#percentage-calculator", label: "Percentage Calculator" },
+  { href: "/#loan-calculator", label: "Loan Calculator" },
 ];
 
 const COMPANY_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-  { href: "#privacy-policy", label: "Privacy Policy" },
-  { href: "#disclaimer", label: "Disclaimer" },
-  { href: "#terms", label: "Terms & Conditions" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/disclaimer", label: "Disclaimer" },
+  { href: "/terms", label: "Terms & Conditions" },
 ];
 
 export default function Footer() {
@@ -24,7 +27,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <div className="font-display text-lg font-bold text-white">
-              🧮 India Calculator
+              🧮 {SITE_NAME}
             </div>
             <p className="mt-3 max-w-xs text-sm">
               Smart calculators for everyday Indian finances — fast, free
@@ -50,9 +53,9 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5 text-sm">
               {COMPANY_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="focus-ring rounded hover:text-white">
+                  <Link href={link.href} className="focus-ring rounded hover:text-white">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -60,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-white/50">
-          © 2026 India Calculator. All rights reserved.
+          © {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
         </div>
       </div>
     </footer>
