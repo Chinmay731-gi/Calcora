@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #101828;
+}
+
+::selection {
+  background-color: #6C4CF1;
+  color: #ffffff;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 3px solid #6C4CF1;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Amortization table horizontal scroll affordance */
+.scroll-shadow {
+  background:
+    linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+    linear-gradient(to right, rgba(255,255,255,0), white 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(16,24,40,0.15), rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 100% 50%, rgba(16,24,40,0.15), rgba(0,0,0,0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+@media print {
+  nav, footer, .no-print {
+    display: none !important;
+  }
+}
